@@ -1,0 +1,19 @@
+{
+  "name": "todol-backend",
+  "version": "0.0.1",
+  "description": "backend for ToDOl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "budzikt",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "broccoli": "^1.1.4",
+    "grunt": "^1.0.1",
+    "typescript": "^2.6.1"
+  }
+}

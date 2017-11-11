@@ -9,8 +9,10 @@
   "author": "budzikt",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "cors": "^2.8.4",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "broccoli": "^1.1.4",

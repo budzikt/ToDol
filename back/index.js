@@ -9,9 +9,16 @@ var cors = require('cors');
 
 
 var express = require('express');
+var redis = require('redis');
+var Promise = require("bluebird");
 
 var app = express();
+var client = redis.createClient();
 
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 //app.use(cors({origin: 'http://localhost:4200'}));
 
@@ -37,6 +44,25 @@ app.get('/notes/:noteId', (req,res)=>{
     res.json({text: 'Hello Wordl', id: reqId});
 })
 
+app.get('/witaj/:name/:age', (req,res)=>{
+    var name = req.param('name');
+    var age = req.param('age');
+    client.set('user', name, (err, rep)=> {
+        console.log(rep);
+        if(err){
+            console.log(err)
+        }
+    })
+    client.get('user', (err,rep)=>{
+        if(rep){
+            res.json({'user': rep})
+        }
+        if(err){
+            res.json({'erorr': err})
+        }
+        res.end();
+    })
+})
 
 
 app.listen(8888, function(){

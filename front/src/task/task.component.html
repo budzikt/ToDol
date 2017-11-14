@@ -1,0 +1,11 @@
+<div>
+  <p>Create new task</p>
+  <button class="btn btn-primary" (click)="toggleFormVisibility()">+</button>
+</div>
+<div *ngIf="getFormVisible()">
+  <form [formGroup]="newTaskForm" novalidate>
+    <input type="text" formControlName="title">
+    <input type="text" formControlName="description">
+    <input type="button" value="submit new" (click)="onSubmit()">
+  </form>
+</div>
